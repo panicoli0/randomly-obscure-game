@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class CardsListener : MonoBehaviour, IDataPersistence
 {
-    public List<CardView> Cards { get => _cards; set => _cards = value; }
-
     [SerializeField] private List<CardView> _cards = new();
     [SerializeField] private MatchingCardsGame _matchingCardsGame;
     [SerializeField] private GridHandler _gridHandler;
@@ -15,15 +13,11 @@ public class CardsListener : MonoBehaviour, IDataPersistence
     [SerializeField] private List<string> _cardsIDs = new();
     [SerializeField] private List<bool> _cardsStatus = new();
 
-    bool startAssigningValues;
+    private bool startAssigningValues;
     private CardView _firstCard;
     private CardView _secondCard;
-    int winLevelCont;
 
-    private void OnDisable()
-    {
-        StopCoroutine(AssignValue(null));
-    }
+    private void OnDisable() => StopCoroutine(AssignValue(null));
 
     public void AddCard(CardView card)
     {
@@ -50,7 +44,7 @@ public class CardsListener : MonoBehaviour, IDataPersistence
                     if (_firstCard.number != _secondCard.number)
                     {
                         Debug.Log("NOT A MATCH!");
-                        _audioSource.PlayOneShot(_clips[0]);
+                        _audioSource.PlayOneShot(_clips[0]); //Possible refactor: Aclass.audioSource.PlayOneShot(Aclass.clips.notamatch);
                         _firstCard.Flip();
                         _secondCard.Flip();
                     }
@@ -58,7 +52,7 @@ public class CardsListener : MonoBehaviour, IDataPersistence
                     {
                         _firstCard.Match();
                         _secondCard.Match();
-                        _audioSource.PlayOneShot(_clips[1]);
+                        _audioSource.PlayOneShot(_clips[1]); //Possible refactor: Aclass.audioSource.PlayOneShot(Aclass.clips.notamatch);
                         _matchingCardsGame.AddMatchedCards(_firstCard, _secondCard);
                     }
                 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridHandler : MonoBehaviour
 {
-    public int Size { get => _size; set => _size = value; } 
+    public int Size { get => _size; set => _size = value; }
 
     [SerializeField] private CardView _cardPrefab;
     [SerializeField] private Transform _container;
@@ -21,44 +21,30 @@ public class GridHandler : MonoBehaviour
     {
         if (_size != 0) SetGrid(_size);
     }
+
     private void OnDisable()
     {
-        StopCoroutine(CreateGrid(0,false));
-        StopCoroutine(RebuildGrid(false,null));
+        StopCoroutine(CreateGrid(0, false));
+        StopCoroutine(RebuildGrid(false, null));
     }
 
     internal void SetGrid(int amount)
     {
         gameObject.SetActive(true);
-        _size= amount;
+        _size = amount;
         PlayerPrefs.SetInt("GridSize", _size);
-        _matchingCardsGame.WinLevelCont = 0;
+        _matchingCardsGame.WinLevelCont = 0; // Posible refactor
 
         StartCoroutine(CreateGrid(amount, true));
-        //TODO: reOrdenar cards randomly
-        if (result==false)
-        {
-            Debug.Log("TERMINO LA RUTINA CreateGrid");
-            var cards = _cardsListener.GetComponentsInChildren<CardView>();
-            foreach (CardView card in cards)
-            {
-                _cardsListener.AddCard(card);
-            }
-        }
-    }
-
-    internal void SetRebuildGrid(GameData data)
-    {
-        StartCoroutine(RebuildGrid(true, data));
-
+        //TODO: reOrder cards randomly
         if (result == false)
         {
-            Debug.Log("RebuildGrid finish");
+            Debug.Log("CreateGrid routine finish");
             var cards = _cardsListener.GetComponentsInChildren<CardView>();
             foreach (CardView card in cards) _cardsListener.AddCard(card);
         }
     }
-    
+
     private IEnumerator CreateGrid(int amount, bool start)
     {
         while (start)
@@ -67,7 +53,7 @@ public class GridHandler : MonoBehaviour
             for (int i = 0; i < amount; i++)
             {
                 CardView cardView = Instantiate(_cardPrefab, _container);
-                
+
                 _grid.Add(cardView);
                 foreach (CardView card in _grid) card.number = GetNextValue(amount);
                 if (i >= amount / 2) result = start = false;
@@ -79,7 +65,7 @@ public class GridHandler : MonoBehaviour
 
     internal IEnumerator RebuildGrid(bool start, GameData data)
     {
-        while (start && data.gridStatus.Count !=0)
+        while (start && data.gridStatus.Count != 0)
         {
             for (int i = 0; i < data.gridStatus.Count; i++)
             {

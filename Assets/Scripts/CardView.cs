@@ -48,10 +48,7 @@ public class CardView : MonoBehaviour
         _cardStatus = true;
     }
 
-    private void OnDisable()
-    {
-        StopCoroutine(FlipCoroutine(State.FaceDown));
-    }
+    private void OnDisable() => StopCoroutine(FlipCoroutine(State.FaceDown));
 
     public enum State
     {
@@ -115,8 +112,5 @@ public class CardView : MonoBehaviour
         _cardVisual.gameObject.SetActive(_cardStatus);
     }
 
-    public void UpdateCards()
-    {
-        visual.gameObject.SetActive(_cardStatus);
-    }
+    public void UpdateCards() => visual.gameObject.SetActive(_cardStatus);
 }

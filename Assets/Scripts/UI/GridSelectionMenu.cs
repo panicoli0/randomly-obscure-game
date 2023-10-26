@@ -10,8 +10,6 @@ public class GridSelectionMenu : MonoBehaviour
     [SerializeField] private Button _2x3Button;
     [SerializeField] private Button _5x6Button;
     [SerializeField] private Button _backButton;
-
-    //[SerializeField] private MainMenu _mainMenu;
     [SerializeField] private GridHandler _gridHandler;
 
     private int _2x2LayoutAmount = 4;
@@ -31,18 +29,13 @@ public class GridSelectionMenu : MonoBehaviour
     {
         MenuToggle(false);
         _gridHandler.GridToggle(false);
-        //_mainMenu.MenuToggle(true);
     }
 
-    public void MenuToggle(bool show)
-    {
-        gameObject.SetActive(show);
-    }
+    public void MenuToggle(bool show) => gameObject.SetActive(show);
 
     private void TwoByTwoButtonClicked()
     {
         // create a 4 cards layout
-        //_gridHandler.CreateGrid(_2x2LayoutAmount);
         _gridHandler.SetGrid(_2x2LayoutAmount);
         MenuToggle(false);
     }
@@ -50,7 +43,6 @@ public class GridSelectionMenu : MonoBehaviour
     private void ThreeByTwoButtonClicked()
     {
         // create a 6 cards layout
-        //_gridHandler.CreateGrid(_2x3LayoutAmount);
         _gridHandler.SetGrid(_2x3LayoutAmount);
         MenuToggle(false);
     }
@@ -58,7 +50,6 @@ public class GridSelectionMenu : MonoBehaviour
     private void FiveBySixButtonClicked()
     {
         // create a 30 cards layout
-        //_gridHandler.CreateGrid(_5x6LayoutAmount);
         _gridHandler.SetGrid(_5x6LayoutAmount);
         MenuToggle(false);
     }

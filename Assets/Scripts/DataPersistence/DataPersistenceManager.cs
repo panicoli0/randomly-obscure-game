@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
@@ -49,29 +48,6 @@ public class DataPersistenceManager : MonoBehaviour
 
         InitializeSelectedProfileId();
     }
-
-    /*private void OnEnable() 
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable() 
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }*/
-
-    /*public void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
-    {
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
-
-        // start up the auto saving coroutine
-        if (autoSaveCoroutine != null)
-        {
-            StopCoroutine(autoSaveCoroutine);
-        }
-        autoSaveCoroutine = StartCoroutine(AutoSave());
-    }*/
 
     public void FakeOnSceneLoaded(bool withLoad)
     {

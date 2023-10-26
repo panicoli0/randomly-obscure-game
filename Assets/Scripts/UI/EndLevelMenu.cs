@@ -16,10 +16,7 @@ public class EndLevelMenu : MonoBehaviour
         _newGame.onClick.AddListener(NewGameButton);
     }
 
-    internal void MenuToggle(bool display)
-    {
-        gameObject.SetActive(display);
-    }
+    internal void MenuToggle(bool display) => gameObject.SetActive(display);
 
     private void NewGameButton()
     {

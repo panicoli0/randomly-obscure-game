@@ -4,7 +4,6 @@ using UnityEngine;
 public class MatchingCardsGame : MonoBehaviour
 {
     public int WinLevelCont { get => winLevelCont; set => winLevelCont = value; }
-    public List<CardView> Cards { get => _matchedCards; set => _matchedCards = value; }
 
     [SerializeField] private List<CardView> _matchedCards = new();
     [SerializeField] private ScoreSystem _scoreSystem;
@@ -12,7 +11,7 @@ public class MatchingCardsGame : MonoBehaviour
     [SerializeField] private GridHandler _gridHandler;
     [SerializeField] private AudioSource _audioSource;
 
-    int winLevelCont = 0;
+    private int winLevelCont = 0;
 
     internal void AddMatchedCards(CardView firstCard, CardView secondCard)
     {
@@ -36,7 +35,7 @@ public class MatchingCardsGame : MonoBehaviour
             } 
         }
         // Check win
-        int size = 0;
+        int size;
         size = PlayerPrefs.GetInt("GridSize");
         if (winLevelCont >= size)
         {

@@ -8,6 +8,7 @@ public class MatchingCardsGame : MonoBehaviour
 
     [SerializeField] private List<CardView> _matchedCards = new();
     [SerializeField] private ScoreSystem _scoreSystem;
+    [SerializeField] private ScoreSystemSO _scoreSystemSO;
     [SerializeField] private EndLevelMenu _endLevelMenu;
     [SerializeField] private GridHandler _gridHandler;
     [SerializeField] private AudioSource _audioSource;
@@ -31,7 +32,8 @@ public class MatchingCardsGame : MonoBehaviour
             if (card.CurrentState == CardView.State.Matched && card.isActiveAndEnabled)
             {
                 card.Matched();
-                _scoreSystem.AddScore(card.point);
+                _scoreSystemSO.AddScore(card.point);
+                //_scoreSystem.AddScore(card.point);
                 winLevelCont++;
             } 
         }

@@ -11,7 +11,7 @@ namespace CardMatchingGame.UI.View
         [SerializeField] private Button _continue;
         [SerializeField] private Button _loadGame;
         [SerializeField] private Button _quit;
-
+    
         private void Awake()
         {
             _newGame.onClick.AddListener(NewGameClicked);

@@ -1,30 +1,22 @@
+using CardMatchingGame.Presentation;
+using CardMatchingGame.Presentation.Systems;
 using CardMatchingGame.UI.View;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MatchingCardsGame : MonoBehaviour
+public class MatchChecker : MonoBehaviour, IMatchGetter
 {
     public int WinLevelCont { get => winLevelCont; set => winLevelCont = value; }
 
-    [SerializeField] private List<CardView> _matchedCards = new();
     [SerializeField] private ScoreSystem _scoreSystem;
     [SerializeField] private EndLevelMenu _endLevelMenu;
-    [SerializeField] private GridHandler _gridHandler;
+    [SerializeField] private CardsListener _cardListener;
+    [SerializeField] private GridHandlerPresentation _gridHandler;
     [SerializeField] private AudioSource _audioSource;
 
     private int winLevelCont = 0;
 
-    internal void AddMatchedCards(CardView firstCard, CardView secondCard)
-    {
-        var matchedCards = new List<CardView>
-        {
-            firstCard,
-            secondCard
-        };
-        CheckMatch(matchedCards);
-    }
-
-    internal void CheckMatch(List<CardView> cards)
+    public void CheckMatch(List<CardView> cards)
     {
         foreach (CardView card in cards)
         {
@@ -33,7 +25,7 @@ public class MatchingCardsGame : MonoBehaviour
                 card.Matched();
                 _scoreSystem.AddScore(card.point);
                 winLevelCont++;
-            } 
+            }
         }
         // Check win
         int size;
@@ -43,8 +35,14 @@ public class MatchingCardsGame : MonoBehaviour
             Debug.Log("You win the level!");
             _audioSource.PlayOneShot(_audioSource.clip);
             _endLevelMenu.MenuToggle(true);
-            _matchedCards.Clear();
-            _gridHandler.CleanGrid();
+            CleanUpSecuence();
         }
+    }
+
+    public void CleanUpSecuence()
+    {
+        _cardListener.Moves = 0;
+        //UISceneReferenceHolder.MovesCounterView.UpdateMovesCounter(_moves);
+        _gridHandler.CleanGrid();
     }
 }

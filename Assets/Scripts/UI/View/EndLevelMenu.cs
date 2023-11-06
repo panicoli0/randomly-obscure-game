@@ -1,3 +1,5 @@
+using CardMatchingGame.Model.DataPersistance;
+using CardMatchingGame.Presentation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +10,12 @@ namespace CardMatchingGame.UI.View
         [SerializeField] private Button _restart;
         [SerializeField] private Button _newGame;
 
-        [SerializeField] private GridSelectionMenu _gridSelectionMenu;
-        [SerializeField] private GridHandler _gridHandler;
+        //[SerializeField] private GridSelectionMenuView _gridSelectionMenu;
+        //[SerializeField] private GridHandlerView _gridHandler;
         [SerializeField] private CardsListener _cardListener;
+        [SerializeField] private LevelRequestView _levelRequestView;
+        [SerializeField] private GameOverView _gameOverView;
+        [SerializeField] private MovesCounterView _movesCounterView;
 
         private void Awake()
         {
@@ -19,17 +24,31 @@ namespace CardMatchingGame.UI.View
 
         }
 
+        private void OnDisable()
+        {
+            _levelRequestView.MenuToggle(false);
+            _movesCounterView.MenuToggle(false);
+        }
+
         private void NewGameButton()
         {
             MenuToggle(false);
-            _gridSelectionMenu.MenuToggle(true);
+            _gameOverView.MenuToggle(false);
+            //PresentationSceneReferenceHolder.GridHandlerPresentation.Init();
+
+            UISceneReferenceHolder.GridSelectionMenuView.MenuToggle(true);
         }
 
         private void RestartButton()
         {
             DataPersistenceManager.instance.NewGame();
-            _gridHandler.Init();
+            //PresentationSceneReferenceHolder.GridHandlerPresentation.CleanGrid();
+            
             MenuToggle(false);
+            _gameOverView.MenuToggle(false);
+            _levelRequestView.MenuToggle(true);
+
+            PresentationSceneReferenceHolder.GridHandlerPresentation.Init();
         }
     }
 }

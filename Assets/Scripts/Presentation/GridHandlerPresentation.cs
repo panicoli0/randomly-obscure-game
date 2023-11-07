@@ -36,11 +36,8 @@ namespace CardMatchingGame.Presentation
             StopCoroutine(RebuildGrid(false, null));
         }
 
-        // PRESENTATION
         internal void SetGrid(int amount)
         {
-            //gameObject.SetActive(true);
-            //GridToggle(true);
             CleanGrid();
             UISceneReferenceHolder.GridHandlerView.MenuToggle(true);
 
@@ -112,8 +109,6 @@ namespace CardMatchingGame.Presentation
             }
             return 0;
         }
-
-        //internal void GridToggle(bool display) => gameObject.SetActive(display);
 
         internal void CleanGrid()
         {

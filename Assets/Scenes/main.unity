@@ -666,9 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreSystem: {fileID: 760446647}
-  _endLevelMenu: {fileID: 4764518976069129848}
   _cardListener: {fileID: 452880899}
-  _gridHandler: {fileID: 1961811010}
   _audioSource: {fileID: 344837035}
 --- !u!1 &441870406
 GameObject:
@@ -830,7 +828,6 @@ MonoBehaviour:
   _cards: []
   _matchingCardsGame: {fileID: 344837033}
   _matchChecker: {fileID: 344837036}
-  _gridHandler: {fileID: 1961811010}
   _audioSource: {fileID: 452880900}
   _clips:
   - {fileID: 8300000, guid: 3fc047ec94688ac41b5e36c0cbea7b82, type: 3}
@@ -838,11 +835,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4ded99c531176cf45999b0ae84e98b6a, type: 3}
   _cardsIDs: []
   _cardsStatus: 
-  _endLevelMenu: {fileID: 4764518976069129848}
-  _movesCounterView: {fileID: 1742479070}
-  _levelRequestView: {fileID: 1108810536}
-  _gameOverView: {fileID: 561190702}
-  _moves: 0
 --- !u!82 &452880900
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1766,7 +1758,6 @@ MonoBehaviour:
   _2x3Button: {fileID: 809801631}
   _5x6Button: {fileID: 1973804921}
   _backButton: {fileID: 772467392}
-  _gridHandler: {fileID: 0}
 --- !u!1 &1108810534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +1973,8 @@ MonoBehaviour:
   _gridHandlerView: {fileID: 76070073}
   _movesCounterView: {fileID: 1742479070}
   _levelRequestView: {fileID: 1108810536}
+  _gameOverView: {fileID: 561190702}
+  _endLevelMenu: {fileID: 4764518976069129848}
 --- !u!4 &1527535801
 Transform:
   m_ObjectHideFlags: 0
@@ -2557,7 +2550,7 @@ GameObject:
   - component: {fileID: 4764518976069129846}
   - component: {fileID: 4764518976069129848}
   m_Layer: 5
-  m_Name: EndLevelMenu
+  m_Name: EndLevelMenuView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2577,8 +2570,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _restart: {fileID: 9014228022469538830}
   _newGame: {fileID: 9014228022876912240}
-  _cardListener: {fileID: 452880899}
-  _gameOverView: {fileID: 561190702}
 --- !u!1001 &4925663884358865019
 PrefabInstance:
   m_ObjectHideFlags: 0

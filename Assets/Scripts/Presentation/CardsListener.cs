@@ -16,18 +16,12 @@ namespace CardMatchingGame.Presentation
         [SerializeField] private List<CardView> _cards = new();
         [SerializeField] private MatchingCardsSystem _matchingCardsGame;
         [SerializeField] private MatchChecker _matchChecker;
-        [SerializeField] private GridHandlerPresentation _gridHandler;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private List<AudioClip> _clips;
         [SerializeField] private List<string> _cardsIDs = new();
         [SerializeField] private List<bool> _cardsStatus = new();
-        [SerializeField] private EndLevelMenu _endLevelMenu;
-        [SerializeField] private MovesCounterView _movesCounterView;
-        [SerializeField] private LevelRequestView _levelRequestView;
-        [SerializeField] private GameOverView _gameOverView;
 
-        [SerializeField] private int _moves;
-
+        private int _moves;
         private bool startAssigningValues;
         private CardView _firstCard;
         private CardView _secondCard;
@@ -47,16 +41,15 @@ namespace CardMatchingGame.Presentation
         {
             _moves += move;
             UISceneReferenceHolder.MovesCounterView.UpdateMovesCounter(_moves);
-            //_movesCounterView.UpdateMovesCounter(_moves);
             if (_moves > GameRules.Rule) GameOverSecuence();
         }
 
         private void GameOverSecuence()
         {
             Debug.Log("GAME OVER!");
-            _gameOverView.MenuToggle(true);
             _audioSource.PlayOneShot(_clips[2]);
-            _endLevelMenu.MenuToggle(true);
+            UISceneReferenceHolder.GameOverView.MenuToggle(true);
+            UISceneReferenceHolder.EndLevelMenu.MenuToggle(true);
             _firstCard = null;
             _secondCard = null;
             _matchChecker.CleanUpSecuence();
@@ -112,11 +105,11 @@ namespace CardMatchingGame.Presentation
 
         public void LoadData(GameData data)
         {
-            GameRules.Rule = data.movesRule / 2;
+            GameRules.Rule = data.movesRule / 2; //Possible refactor
             _moves = data.movesCount;
-            _gridHandler.Size = data.cardsStatus.Count;
+            PresentationSceneReferenceHolder.GridHandlerPresentation.Size = data.cardsStatus.Count;
             PresentationSceneReferenceHolder.GridHandlerPresentation.Init();
-            _levelRequestView.MenuToggle(true);
+            UISceneReferenceHolder.LevelRequestView.MenuToggle(true);
 
             for (int i = 0; i < data.cardsStatus.Count; i++)
             {

@@ -11,20 +11,10 @@ namespace CardMatchingGame.UI.View
         [SerializeField] private Button _2x3Button;
         [SerializeField] private Button _5x6Button;
         [SerializeField] private Button _backButton;
-        [SerializeField] private GridHandlerView _gridHandler;
-        //[SerializeField] private LevelRequestView _levelRequestView;
 
-        private int _2x2LayoutAmount = 4;
-        private int _2x3LayoutAmount = 6;
-        private int _5x6LayoutAmount = 30;
-
-        /*private void Awake()
-        {
-            _2x2Button.onClick.AddListener(TwoByTwoButtonClicked);
-            _2x3Button.onClick.AddListener(ThreeByTwoButtonClicked);
-            _5x6Button.onClick.AddListener(FiveBySixButtonClicked);
-            _backButton.onClick.AddListener(BackButtonClicked);
-        }*/
+        private readonly int _2x2LayoutAmount = 4;
+        private readonly int _2x3LayoutAmount = 6;
+        private readonly int _5x6LayoutAmount = 30;
 
         internal void Init()
         {

@@ -1575,8 +1575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba90137e4b4de4409f2448e3991224a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelRequestView: {fileID: 1108810536}
-  _movesCounterView: {fileID: 1742479070}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,7 +1767,6 @@ MonoBehaviour:
   _5x6Button: {fileID: 1973804921}
   _backButton: {fileID: 772467392}
   _gridHandler: {fileID: 0}
-  _levelRequestView: {fileID: 1108810536}
 --- !u!1 &1108810534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,8 +1980,8 @@ MonoBehaviour:
   _mainMenuView: {fileID: 598923798}
   _gridSelectionMenuView: {fileID: 1104364062}
   _gridHandlerView: {fileID: 76070073}
-  _levelRequestView: {fileID: 0}
   _movesCounterView: {fileID: 1742479070}
+  _levelRequestView: {fileID: 1108810536}
 --- !u!4 &1527535801
 Transform:
   m_ObjectHideFlags: 0
@@ -2581,9 +2578,7 @@ MonoBehaviour:
   _restart: {fileID: 9014228022469538830}
   _newGame: {fileID: 9014228022876912240}
   _cardListener: {fileID: 452880899}
-  _levelRequestView: {fileID: 1108810536}
   _gameOverView: {fileID: 561190702}
-  _movesCounterView: {fileID: 1742479070}
 --- !u!1001 &4925663884358865019
 PrefabInstance:
   m_ObjectHideFlags: 0

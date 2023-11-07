@@ -7,7 +7,6 @@ namespace CardMatchingGame.UI.View
 {
     public class MainMenuView : GameUIBase
     {
-        //[SerializeField] private GridHandler _gridHandler;
         [SerializeField] private Button _newGame;
         [SerializeField] private Button _continue;
         [SerializeField] private Button _quit;

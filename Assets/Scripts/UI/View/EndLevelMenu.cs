@@ -13,9 +13,9 @@ namespace CardMatchingGame.UI.View
         //[SerializeField] private GridSelectionMenuView _gridSelectionMenu;
         //[SerializeField] private GridHandlerView _gridHandler;
         [SerializeField] private CardsListener _cardListener;
-        [SerializeField] private LevelRequestView _levelRequestView;
+        //[SerializeField] private LevelRequestView _levelRequestView;
         [SerializeField] private GameOverView _gameOverView;
-        [SerializeField] private MovesCounterView _movesCounterView;
+        //[SerializeField] private MovesCounterView _movesCounterView;
 
         private void Awake()
         {
@@ -26,8 +26,8 @@ namespace CardMatchingGame.UI.View
 
         private void OnDisable()
         {
-            _levelRequestView.MenuToggle(false);
-            _movesCounterView.MenuToggle(false);
+            UISceneReferenceHolder.LevelRequestView.MenuToggle(false);
+            UISceneReferenceHolder.MovesCounterView.MenuToggle(false);
         }
 
         private void NewGameButton()
@@ -46,7 +46,7 @@ namespace CardMatchingGame.UI.View
             
             MenuToggle(false);
             _gameOverView.MenuToggle(false);
-            _levelRequestView.MenuToggle(true);
+            UISceneReferenceHolder.LevelRequestView.MenuToggle(true);
 
             PresentationSceneReferenceHolder.GridHandlerPresentation.Init();
         }

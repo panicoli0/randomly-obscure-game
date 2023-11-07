@@ -1,5 +1,4 @@
 using CardMatchingGame.Model;
-using CardMatchingGame.UI;
 using TMPro;
 using UnityEngine;
 

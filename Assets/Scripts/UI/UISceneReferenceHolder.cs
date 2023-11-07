@@ -12,12 +12,14 @@ namespace CardMatchingGame.UI
         internal static GridSelectionMenuView GridSelectionMenuView;
         internal static GridHandlerView GridHandlerView;
         internal static MovesCounterView MovesCounterView;
+        internal static LevelRequestView LevelRequestView;
+
         [SerializeField] private MainMenuView _mainMenuView;
         [SerializeField] private GridSelectionMenuView _gridSelectionMenuView;
         [SerializeField] private GridHandlerView _gridHandlerView;
-
-        [SerializeField] private LevelRequestView _levelRequestView;
         [SerializeField] private MovesCounterView _movesCounterView;
+        [SerializeField] private LevelRequestView _levelRequestView;
+        
 
         private void Awake()
         {
@@ -25,6 +27,7 @@ namespace CardMatchingGame.UI
             GridSelectionMenuView = _gridSelectionMenuView;
             GridHandlerView = _gridHandlerView;
             MovesCounterView = _movesCounterView;
+            LevelRequestView = _levelRequestView;
         }
     }
 }

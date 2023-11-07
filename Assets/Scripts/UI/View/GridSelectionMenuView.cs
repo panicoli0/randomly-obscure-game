@@ -12,7 +12,7 @@ namespace CardMatchingGame.UI.View
         [SerializeField] private Button _5x6Button;
         [SerializeField] private Button _backButton;
         [SerializeField] private GridHandlerView _gridHandler;
-        [SerializeField] private LevelRequestView _levelRequestView;
+        //[SerializeField] private LevelRequestView _levelRequestView;
 
         private int _2x2LayoutAmount = 4;
         private int _2x3LayoutAmount = 6;
@@ -46,7 +46,7 @@ namespace CardMatchingGame.UI.View
             // create a 4 cards layout
             PresentationSceneReferenceHolder.GridHandlerPresentation.SetGrid(_2x2LayoutAmount);
             GameRules.Rule = _2x2LayoutAmount;
-            _levelRequestView.MenuToggle(true);
+            UISceneReferenceHolder.LevelRequestView.MenuToggle(true);
             MenuToggle(false);
         }
 
@@ -55,7 +55,7 @@ namespace CardMatchingGame.UI.View
             // create a 6 cards layout
             PresentationSceneReferenceHolder.GridHandlerPresentation.SetGrid(_2x3LayoutAmount);
             GameRules.Rule = _2x3LayoutAmount;
-            _levelRequestView.MenuToggle(true);
+            UISceneReferenceHolder.LevelRequestView.MenuToggle(true);
             MenuToggle(false);
         }
 
@@ -64,7 +64,7 @@ namespace CardMatchingGame.UI.View
             // create a 30 cards layout
             PresentationSceneReferenceHolder.GridHandlerPresentation.SetGrid(_5x6LayoutAmount);
             GameRules.Rule = _5x6LayoutAmount;
-            _levelRequestView.MenuToggle(true);
+            UISceneReferenceHolder.LevelRequestView.MenuToggle(true);
             MenuToggle(false);
         }
     }

@@ -23,8 +23,8 @@ namespace CardMatchingGame.Presentation
 
         private int _moves;
         private bool startAssigningValues;
-        private CardView _firstCard;
-        private CardView _secondCard;
+        private CardView _firstCard = null;
+        private CardView _secondCard = null;
 
         public int Moves { get => _moves; set => _moves = value; }
 
@@ -95,11 +95,6 @@ namespace CardMatchingGame.Presentation
                     _firstCard = null;
                     _secondCard = null;
                 }
-            }
-
-            if (_firstCard != null && _firstCard.CurrentState == CardView.State.FaceDown)
-            {
-                _firstCard = null;
             }
         }
 

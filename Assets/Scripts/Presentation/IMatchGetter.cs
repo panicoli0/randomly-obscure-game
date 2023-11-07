@@ -1,7 +1,11 @@
 using CardMatchingGame.UI.View;
 using System.Collections.Generic;
 
-public interface IMatchGetter
+namespace CardMatchingGame.Presentation
 {
-    void CheckMatch(List<CardView> cards);
+    public interface IMatchGetter
+    {
+        void CheckMatch(List<CardView> cards);
+    }
 }
+

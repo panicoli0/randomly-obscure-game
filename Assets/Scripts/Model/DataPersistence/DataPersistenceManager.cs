@@ -89,7 +89,7 @@ namespace CardMatchingGame.Model.DataPersistance
             if (overrideSelectedProfileId)
             {
                 this.selectedProfileId = testSelectedProfileId;
-                Debug.LogWarning("Overrode selected profile id with test id: " + testSelectedProfileId);
+                Debug.LogWarning("Override selected profile id with test id: " + testSelectedProfileId);
             }
         }
 
